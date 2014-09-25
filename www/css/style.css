@@ -1,1 +1,144 @@
 /* Empty. Add your own CSS if you like */
+
+
+@import url(http://fonts.googleapis.com/css?family=Karla:400,700);
+
+
+body , input, select, textarea,h1 {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+  font-family: 'Karla', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  font-weight:400
+}
+
+.bar-dark.left h1.title {
+
+  text-align: left;
+
+}
+.bar.bar-dark.bar-header,.left-menu .bar.bar-header,.left-menu .tabs.tabs-dark {
+
+  background-color:#111
+
+}
+.left-menu .bar.bar-header{
+
+  padding:0;
+  border-bottom:1px solid #222
+}
+.menu.menu-left .item {
+  color:#FFF
+}
+.ion-ios7-videocam:before,.ion-ios7-camera:before ,.ion-ios7-compose:before,.ion-ios7-chatbubble:before{
+  font-size:22px;
+  color:#555
+}
+.buttons.left-buttons .ion-navicon:before {
+  font-size:32px !important;
+  color:#999;margin-left:-10px;
+}
+.ion-power:before {
+  font-size:18px !important;
+  color:#999
+}
+.ion-social-twitter:before {
+  font-size:18px;
+  color:#3cf
+}
+.ion-social-facebook:before {
+  font-size:18px;
+  color:#627AAD
+}
+.ion-social-youtube:before {
+  font-size:18px;
+  color:#c4302b
+}
+.ion-social-tumblr:before {
+  font-size:18px;
+  color:#34526f
+}
+.item[href] .item-content:after, .item[ng-click] .item-content:after, a.item:after, button.item:after {
+  color: #111 !important;
+  font-family: Ionicons;
+
+}
+
+.left-menu .bar.bar-footer{
+ padding:0;
+ border-top:1px solid #222
+}
+.left-menu .tabs {
+
+  height: 44px;
+  line-height: 44px;
+}
+.left-menu .tabs-dark>.tabs, .left-menu .tabs.tabs-dark {
+  border-color: #222;
+  background-color: #111;
+}
+.left-menu .item-input-wrapper {
+
+  border-radius: 0;
+  padding-right: 8px;
+  padding-left: 8px;
+  background: #111;
+  font-family: 'Karla', sans-serif;
+}
+.left-menu .bar.item-input-inset .item-input-wrapper input {
+  color:#CCC
+}
+
+
+.left-menu .tab-item .icon {
+
+  height: 24px;
+  font-size: 24px;
+  vertical-align:midlle
+}
+.left-menu .bar.bar-header .tab-item .icon:before {
+
+  height: 14px;
+  font-size: 16px;
+  vertical-align:top
+}
+.left-menu .tabs-icon-left .tab-item, .left-menu .tabs-icon-right .tab-item {
+  font-size: 12px;
+  line-height: 49px;
+}
+.bar-subheader {
+  top: 44px;
+}
+.menu.menu-left {
+  background-color: #151515;
+}
+.menu.menu-left .item {
+  border-color: #111;
+  background-color: #151515;
+}
+.bar.bar-subheader .button-bar .button {
+  border: none;
+  background: none;
+  color: #FFF;
+  border-width: 0;
+  border-style: none;
+  border-radius: 0;
+}
+.bar.bar-stable.bar-subheader  {
+  border: none;
+  background: #222;
+  color: #FFF;
+
+}
+/* Desktops and laptops --  --  --  --  -- - */
+@media only screen
+and (min-width : 1224px) { 
+  .button-bar{
+
+    margin:0 auto;max-width:50%
+
+  }
+  
+
+  
+} 
+

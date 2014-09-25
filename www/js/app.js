@@ -27,46 +27,50 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
-      controller: 'AppCtrl'
+      controller: 'AppController'
     })
-
-    .state('app.search', {
-      url: "/search",
+    .state('app.dashboard', {
+      url: "/dashboard",
       views: {
         'menuContent' :{
-          templateUrl: "templates/search.html"
+          templateUrl: "templates/dashboard.html",
+          controller: 'DashboardController'
         }
       }
     })
-
-    .state('app.browse', {
-      url: "/browse",
+    .state('app.subscriptions', {
+      url: "/subscriptions",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/subscriptions.html",
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.open_calls', {
+      url: "/open_calls",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/open_calls.html"
         }
       }
     })
-
-    .state('app.single', {
-      url: "/playlists/:playlistId",
+    .state('app.privacy_control', {
+      url: "/privacy_control",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlist.html",
-          controller: 'PlaylistCtrl'
+          templateUrl: "templates/privacy_control.html"
+        }
+      }
+    })
+    .state('app.social_networks', {
+      url: "/social_networks",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/social_networks.html"
         }
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/dashboard');
 });
 

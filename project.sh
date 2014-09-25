@@ -174,7 +174,7 @@ fi
 if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
 
   message_info "Adding Device Plugin..."
-  cordova plugin add org.apache.cordova.console
+  cordova plugin add org.apache.cordova.device
 
   message_info "Adding Console Plugin..."
   cordova plugin add org.apache.cordova.console

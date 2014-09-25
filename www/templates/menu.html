@@ -1,30 +1,59 @@
 <ion-side-menus>
-
   <ion-pane ion-side-menu-content>
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+    <ion-nav-bar class="bar-dark nav-title-slide-ios7">
       <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
-  <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable">
-      <h1 class="title">Left</h1>
-    </header>
+  <ion-side-menu side="left" class="left-menu">
+    <ion-header-bar class="bar bar-header bar-stable">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    
+    <ion-footer-bar>
+      <div class="tabs tabs-dark tabs-icon-only">
+        <a class="tab-item">
+          <i class="icon ion-ios7-person"></i>
+          <span class="badge badge-assertive">0</span>
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-star"></i>
+        </a>
+        <a class="tab-item">
+          <i class="icon ion-gear-a"></i>
+        </a>
+      </div>
+    </ion-footer-bar>
+
     <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/search">
-          Search
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
-        </ion-item>
+        <div class="item item-divider">
+          Personal 
+        </div>
+        <a nav-clear menu-close class="item item-icon-left" href="#/app/dashboard">
+          <i class="icon ion-ios7-home"></i>
+          Dashboard
+        </a>
+        <a nav-clear menu-close class="item item-icon-left" href="#/app/subscriptions">
+          <i class="icon ion-ios7-cloud"></i>
+          Subscriptions
+        </a>
+        <a nav-clear menu-close class="item item-icon-left" href="#/app/open_calls">
+          <i class="icon ion-ios7-bell"></i>
+          Open calls
+        </a>
+        <a nav-clear menu-close class="item item-icon-left" href="#/app/privacy_control">
+          <i class="icon ion-ios7-eye"></i>
+          Privacy control
+        </a>        
+        <div class="item item-divider">
+          CrowdCloud 
+        </div>
+        <a nav-clear menu-close class="item item-icon-left" href="#/app/social_networks">
+          <i class="icon ion-ios7-people"></i>
+          Browse social networks
+        </a>
       </ion-list>
     </ion-content>
   </ion-side-menu>
