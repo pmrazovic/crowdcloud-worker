@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
                       platform: device.platform,
                       model:    device.model,
                       version:  device.version,
-                      pushId:     _pushId }
+                      push_id:     _pushId }
       $http.post("http://192.168.1.78:3000/devices/register", _params, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
         .success(function (data) {
           var successPopup = $ionicPopup.alert({
