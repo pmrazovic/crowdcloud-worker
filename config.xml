@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.crowdcloudworker958678" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>crowdcloud-worker</name>
+<widget id="com.kth.crowdcloudworker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>CrowdCloud Worker</name>
   <description>
-        An Ionic Framework and Cordova project.
+        CrowdCloud client mobile application.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="mrazovic@kth.se" href="https://github.com/pmrazovic">
+      Petar Mrazovic
     </author>
   <content src="index.html"/>
   <access origin="*"/>
