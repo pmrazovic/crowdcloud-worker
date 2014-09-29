@@ -1,19 +1,19 @@
 /* Empty. Add your own CSS if you like */
 
 
-@import url(http://fonts.googleapis.com/css?family=Karla:400,700);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
 
 
 body , input, select, textarea,h1 {
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
-  font-family: 'Karla', sans-serif !important;
+  font-family: 'Ubuntu:300', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   font-weight:400
 }
 
 .bar-dark.left h1.title {
 
-  text-align: left;
+  text-align: center;
 
 }
 .bar.bar-dark.bar-header,.left-menu .bar.bar-header,.left-menu .tabs.tabs-dark {
@@ -73,7 +73,7 @@ body , input, select, textarea,h1 {
   line-height: 44px;
 }
 .left-menu .tabs-dark>.tabs, .left-menu .tabs.tabs-dark {
-  border-color: #222;
+  border-color: #252525;
   background-color: #111;
 }
 .left-menu .item-input-wrapper {
@@ -109,11 +109,11 @@ body , input, select, textarea,h1 {
   top: 44px;
 }
 .menu.menu-left {
-  background-color: #151515;
+  background-color: #323232;
 }
 .menu.menu-left .item {
-  border-color: #111;
-  background-color: #151515;
+  border-color: #252525;
+  background-color: #323232;
 }
 .bar.bar-subheader .button-bar .button {
   border: none;
@@ -129,6 +129,17 @@ body , input, select, textarea,h1 {
   color: #FFF;
 
 }
+
+.grey-background   {
+  background-color: #DBDBDB;
+}
+
+.title-image {
+    margin-top: 3px;
+    height: 40px;
+    vertical-align:middle
+}
+
 /* Desktops and laptops --  --  --  --  -- - */
 @media only screen
 and (min-width : 1224px) { 
