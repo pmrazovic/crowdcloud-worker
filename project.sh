@@ -146,18 +146,18 @@ if [[ $init = 1 ]] || [[ $icons = 1 ]] ; then
   # but for now we know the files and where they need to go.
 
   message_info "Copying Android app icons and splash screen images..."
-  # cp www/res/icon/android/icon-48.png platforms/android/res/drawable-ldpi/icon.png
-  # cp www/res/icon/android/icon-48.png platforms/android/res/drawable-mdpi/icon.png
-  # cp www/res/icon/android/icon-72.png platforms/android/res/drawable-hdpi/icon.png
-  # cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xhdpi/icon.png
-  # cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xxhdpi/icon.png
-  # cp www/res/icon/android/icon-96.png platforms/android/res/drawable/icon.png
+  cp www/res/icon/android/icon-48.png platforms/android/res/drawable-ldpi/icon.png
+  cp www/res/icon/android/icon-48.png platforms/android/res/drawable-mdpi/icon.png
+  cp www/res/icon/android/icon-72.png platforms/android/res/drawable-hdpi/icon.png
+  cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xhdpi/icon.png
+  cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xxhdpi/icon.png
+  cp www/res/icon/android/icon-96.png platforms/android/res/drawable/icon.png
 
-  # cp www/res/screen/android/screen-ldpi-portrait.png platforms/android/res/drawable-port-ldpi/screen.png
-  # cp www/res/screen/android/screen-mdpi-portrait.png platforms/android/res/drawable-port-mdpi/screen.png
-  # cp www/res/screen/android/screen-hdpi-portrait.png platforms/android/res/drawable-port-hdpi/screen.png
-  # cp www/res/screen/android/screen-xhdpi-portrait.png platforms/android/res/drawable-port-xhdpi/screen.png
-  # cp www/res/screen/android/screen-xhdpi-portrait.png platforms/android/res/drawable/screen.png
+  cp www/res/screen/android/screen-ldpi-portrait.png platforms/android/res/drawable-port-ldpi/screen.png
+  cp www/res/screen/android/screen-mdpi-portrait.png platforms/android/res/drawable-port-mdpi/screen.png
+  cp www/res/screen/android/screen-hdpi-portrait.png platforms/android/res/drawable-port-hdpi/screen.png
+  cp www/res/screen/android/screen-xhdpi-portrait.png platforms/android/res/drawable-port-xhdpi/screen.png
+  cp www/res/screen/android/screen-xhdpi-portrait.png platforms/android/res/drawable/screen.png
 
   # message_info "Copying iOS app icons and splash screen images..."
   # cp www/res/icon/ios/*.png platforms/ios/GlobeCat\ Scan/Resources/icons/

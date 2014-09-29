@@ -14,6 +14,9 @@
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="BackupWebStorage" value="none"/>
 
+  <preference name="SplashScreen" value="screen" />
+  <preference name="SplashScreenDelay" value="3000" />
+
   <preference name="com.urbanairship.production_app_key" value="Your production app key" />
   <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
   <preference name="com.urbanairship.development_app_key" value="XTkKjb-9TKa54_MTy3aqGQ" />
