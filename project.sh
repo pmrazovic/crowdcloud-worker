@@ -179,8 +179,11 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
   message_info "Adding Console Plugin..."
   cordova plugin add org.apache.cordova.console
 
-  message_info "Ionic Keyboard Plugin..."
+  message_info "Adding Ionic Keyboard Plugin..."
   cordova plugin add https://github.com/driftyco/ionic-plugins-keyboard.git
+
+  message_info "Adding Urban Airship Plugin..."
+  cordova plugin add https://github.com/urbanairship/phonegap-ua-push.git
 fi
 
 # ----

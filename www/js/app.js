@@ -6,8 +6,30 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $window) {
   $ionicPlatform.ready(function() {
+    // Incoming message callback
+    var handleIncomingPush = function(event) {
+      if(event.message) {
+        console.log("Incoming push: " + event.message);
+      } else {
+        console.log("No incoming message");
+      }
+    }
+
+    // Registration callback
+    var onRegistration = function(event)  {
+      if (!event.error) {
+        console.log("Reg Success: " + event.pushID);
+      } else {
+        console.log(event.error);
+      }
+    }
+
+    // Register for any urban airship events
+    document.addEventListener("urbanairship.registration", onRegistration, false)
+    document.addEventListener("urbanairship.push", handleIncomingPush, false)
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {

@@ -13,6 +13,15 @@
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="BackupWebStorage" value="none"/>
+
+  <preference name="com.urbanairship.production_app_key" value="Your production app key" />
+  <preference name="com.urbanairship.production_app_secret" value="Your production app secret" />
+  <preference name="com.urbanairship.development_app_key" value="XTkKjb-9TKa54_MTy3aqGQ" />
+  <preference name="com.urbanairship.development_app_secret" value="uPS6gXMMQbejgzs-QmYreA" />
+  <preference name="com.urbanairship.in_production" value="false" />
+  <preference name="com.urbanairship.gcm_sender" value="1015862923184" />
+  <preference name="com.urbanairship.enable_push_onlaunch" value="true" />
+
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
