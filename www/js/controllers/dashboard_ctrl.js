@@ -1,9 +1,4 @@
-angular.module('starter.controllers', [])
-
-.controller('AppController', function($scope) {
-})
-
-.controller('DashboardController', function($scope, $http, $ionicLoading, $ionicPopup, $ionicPlatform) {
+controllersModule.controller('DashboardController', function($scope, $http, $ionicLoading, $ionicPopup, $ionicPlatform, PushService) {
   $scope.showLoading = function() {
     $ionicLoading.show({
       template: '<i class="icon ion-loading-b"></i> Loading...'
@@ -14,14 +9,9 @@ angular.module('starter.controllers', [])
     $ionicLoading.hide();
   };
 
-  $ionicPlatform.ready(function () {
-    var _pushId = '';
-    PushNotification.getPushID(function(pushId) {
-      _pushId = pushId;
-    });
-
-    $scope.register = function() {
-      $scope.showLoading();
+  $scope.register = function() {
+    $scope.showLoading();
+    PushService.getPushId().then(function (_pushId) {
       var _params = { uuid:     device.uuid,
                       name:     device.name,
                       platform: device.platform,
@@ -49,11 +39,11 @@ angular.module('starter.controllers', [])
               }]
           });
         })
-        .finally(function() {
-          $scope.hideLoading();
-        });
-    };
-  })
+      })
+    .finally(function() {
+      $scope.hideLoading();
+    });
+  };
 
 
 })
