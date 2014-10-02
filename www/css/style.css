@@ -140,6 +140,31 @@ body , input, select, textarea,h1 {
     vertical-align:middle
 }
 
+.background-pattern {
+  background: url('../img/background-pattern.png') repeat;
+}
+.background-pattern:before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left top,
+    color-stop(0, #FFFFFF),
+    color-stop(1, #C9E3FF)
+  );
+  background-image: -o-linear-gradient(left top, #FFFFFF 17%, #C9E3FF 100%);
+  background-image: -moz-linear-gradient(left top, #FFFFFF 17%, #C9E3FF 100%);
+  background-image: -webkit-linear-gradient(left top, #FFFFFF 17%, #C9E3FF 100%);
+  background-image: -ms-linear-gradient(left top, #FFFFFF 17%, #C9E3FF 100%);
+  background-image: linear-gradient(to left top, #FFFFFF 17%, #C9E3FF 100%);
+  }
+
 /* Desktops and laptops --  --  --  --  -- - */
 @media only screen
 and (min-width : 1224px) { 

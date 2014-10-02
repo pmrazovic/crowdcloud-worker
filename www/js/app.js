@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcloud.controllers'])
+var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcloud.controllers', 'ngCordova'])
 
-.run(function($ionicPlatform, $window) {
+.run(function($ionicPlatform, $window, RegistrationService, PushService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -17,6 +17,9 @@ var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcl
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // update registration in GMC
+    PushService.getDeviceId();
   });
 })
 
