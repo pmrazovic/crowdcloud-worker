@@ -6,7 +6,7 @@
 
 body , input, select, textarea,h1 {
   cursor: url('http://ionicframework.com/img/finger.png'), auto;
-  font-family: 'Ubuntu:300', sans-serif !important;
+  font-family: 'Ubuntu', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   font-weight:400
 }
@@ -115,6 +115,11 @@ body , input, select, textarea,h1 {
   border-color: #252525;
   background-color: #323232;
 }
+.menu.menu-left .item.activated {
+  border-color: #252525;
+  background-color: #252525;
+}
+
 .bar.bar-subheader .button-bar .button {
   border: none;
   background: none;
@@ -134,14 +139,18 @@ body , input, select, textarea,h1 {
   background-color: #DBDBDB;
 }
 
+.text-grey {
+  color: #707070;
+}
+
 .title-image {
     margin-top: 3px;
-    height: 40px;
+    height: 22px;
     vertical-align:middle
 }
 
 .background-pattern {
-  background: url('../img/background-pattern.png') repeat;
+  background: url('../img/background-pattern01.png') repeat;
 }
 .background-pattern:before {
   content: " ";
