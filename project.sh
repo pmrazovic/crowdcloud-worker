@@ -136,6 +136,9 @@ if [[ $init = 1 ]] ; then
 
   # message_info "Adding iOS platform..."
   # cordova platform add ios
+
+  # Overriding platform config files
+  cp www/res/config/android/AndroidManifest.xml platforms/android/AndroidManifest.xml
 fi
 
 # ----
@@ -187,6 +190,9 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
 
   message_info "Adding Dialogs Plugin..."
   cordova plugin add org.apache.cordova.dialogs
+
+  message_info "Adding Geolocation Plugin"
+  cordova plugin add org.apache.cordova.geolocation
 fi
 
 # ----

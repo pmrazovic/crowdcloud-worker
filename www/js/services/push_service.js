@@ -1,5 +1,5 @@
 //http://forum.ionicframework.com/t/how-to-show-a-modal-while-receive-notifications/3294/12
-servicesModule.service('PushService', function ($q, $rootScope, $ionicPlatform, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService) {
+servicesModule.service('PushService', function ($q, $rootScope, $ionicPlatform, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, ResponseService) {
 
   var deferred;
   
@@ -59,29 +59,12 @@ servicesModule.service('PushService', function ($q, $rootScope, $ionicPlatform, 
         break;
 
         case 'message':
-            // if this flag is set, this notification happened while we were in the foreground.
-            // you might want to play a sound to get the user's attention, throw up a dialog, etc.
-            if ( eval(e.foreground) )
-            {
-                alert("foreground");
-                // if the notification contains a soundname, play it.
-                var my_media = new Media("/android_asset/www/"+e.soundname);
-                my_media.play();
-                
-                if (e.message) {
-                  alert(e.message).then(function(){
-                  $rootScope.$broadcast('show_notification', {"data" : e.payload.params});
-                });
-              }else{
-                $rootScope.$broadcast('show_notification', {"data" : e.payload.params});
-              }
+            if (typeof e.payload.open_call != 'undefined') {
+              ResponseService.readSensorData(e.payload.open_call.response_data_types).then(function (data) {
+                alert(JSON.stringify(data));
+              });
             }
-            else
-            {  
-              alert("background");
-              $rootScope.$broadcast('show_notification', {"data" : e.payload.params});
-            }
-            
+                        
         break;
 
         case 'error':
