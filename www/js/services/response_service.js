@@ -1,4 +1,4 @@
-servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevice, $cordovaGeolocation) {
+servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevice, $cordovaGeolocation, $cordovaDeviceMotion, $cordovaDeviceOrientation) {
   this.readSensorData = function (response_data_types) {
     var responseItems = [];
     
@@ -34,10 +34,30 @@ servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevi
             }));        
         break;
 
-        case 'AccelerationData':
+        case 'MotionData':
+          promises.push($cordovaDeviceMotion
+            .getCurrentAcceleration({ enableHighAccuracy: true })
+            .then(function(acceleration) {
+              var responseItem = { 'MotionData':
+                                    {
+                                      acceleration_x: acceleration.x,
+                                      acceleration_y: acceleration.y,
+                                      acceleration_z: acceleration.z
+                                    }
+                                 };
+              responseItems.push(responseItem);
+          }));
         break;
 
         case 'OrientationData':
+          promises.push($cordovaDeviceOrientation
+            .getCurrentHeading()
+            .then(function(heading) {
+              var responseItem = { 'OrientationData':
+                                    { magnetic_heading: heading.magneticHeading }
+                                 };
+              responseItems.push(responseItem); 
+          }));
         break;
 
         case 'AirPressureData':

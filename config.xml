@@ -17,7 +17,21 @@
   <preference name="SplashScreen" value="screen" />
   <preference name="SplashScreenDelay" value="2000" />
 
+  <feature name="Device">
+      <param name="android-package" value="org.apache.cordova.Device" />
+  </feature>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <feature name="Geolocation">
+      <param name="android-package" value="org.apache.cordova.GeoBroker" />
+  </feature>
+  <feature name="Accelerometer">
+      <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
+  </feature>
+  <feature name="Compass">
+      <param name="android-package" value="org.apache.cordova.CompassListener" />
+  </feature>
+
+
 </widget>

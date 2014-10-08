@@ -153,7 +153,6 @@ if [[ $init = 1 ]] || [[ $icons = 1 ]] ; then
   cp www/res/icon/android/icon-48.png platforms/android/res/drawable-mdpi/icon.png
   cp www/res/icon/android/icon-72.png platforms/android/res/drawable-hdpi/icon.png
   cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xhdpi/icon.png
-  cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xxhdpi/icon.png
   cp www/res/icon/android/icon-96.png platforms/android/res/drawable/icon.png
 
   cp www/res/screen/android/screen-ldpi-portrait.png platforms/android/res/drawable-port-ldpi/screen.png
@@ -177,10 +176,10 @@ fi
 if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
 
   message_info "Adding Device Plugin..."
-  cordova plugin add org.apache.cordova.device
+  cordova plugin add https://github.com/apache/cordova-plugin-device.git
 
   message_info "Adding Console Plugin..."
-  cordova plugin add org.apache.cordova.console
+  cordova plugin add https://github.com/apache/cordova-plugin-console.git
 
   message_info "Adding Ionic Keyboard Plugin..."
   cordova plugin add https://github.com/driftyco/ionic-plugins-keyboard.git
@@ -189,10 +188,16 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
   cordova plugin add https://github.com/phonegap-build/PushPlugin.git
 
   message_info "Adding Dialogs Plugin..."
-  cordova plugin add org.apache.cordova.dialogs
+  cordova plugin add https://github.com/apache/cordova-plugin-dialogs.git
 
   message_info "Adding Geolocation Plugin"
-  cordova plugin add org.apache.cordova.geolocation
+  cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
+
+  message_info "Adding Device Motion Plugin"
+  cordova plugin add https://github.com/apache/cordova-plugin-device-motion.git
+
+  message_info "Adding Device Orientation Plugin"
+  cordova plugin add https://github.com/apache/cordova-plugin-device-orientation.git
 fi
 
 # ----
