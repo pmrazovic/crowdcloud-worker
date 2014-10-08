@@ -6,7 +6,8 @@ servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevi
     var promises = [];
 
     function lastTask () {
-      var response = { response_items: responseItems };
+      var response = { device: { uuid: $cordovaDevice.getUUID() },
+                       response_items: responseItems };
       defer.resolve(response);
     }
 
@@ -16,7 +17,7 @@ servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevi
       {
         case 'GeoLocationData':
           promises.push($cordovaGeolocation
-            .getCurrentPosition()
+            .getCurrentPosition({ enableHighAccuracy: true })
             .then(function (position) {
               var responseItem = { 'GeoLocationData':
                                     {
@@ -26,8 +27,7 @@ servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevi
                                       accuracy:           position.coords.accuracy,
                                       altitude_accuracy:  position.coords.altitudeAccuracy,
                                       heading:            position.coords.heading,
-                                      speed:              position.coords.speed,
-                                      timestamp:          position.timestamp 
+                                      speed:              position.coords.speed
                                     }
                                  };
               responseItems.push(responseItem);

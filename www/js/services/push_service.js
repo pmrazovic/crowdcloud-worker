@@ -1,5 +1,5 @@
 //http://forum.ionicframework.com/t/how-to-show-a-modal-while-receive-notifications/3294/12
-servicesModule.service('PushService', function ($q, $rootScope, $ionicPlatform, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, ResponseService) {
+servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPlatform, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, ResponseService) {
 
   var deferred;
   
@@ -61,7 +61,8 @@ servicesModule.service('PushService', function ($q, $rootScope, $ionicPlatform, 
         case 'message':
             if (typeof e.payload.open_call != 'undefined') {
               ResponseService.readSensorData(e.payload.open_call.response_data_types).then(function (data) {
-                alert(JSON.stringify(data));
+                var url = "http://130.229.152.79:3000/open_calls/" + e.payload.open_call.id.toString() + "/responses";
+                $http.post(url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}});
               });
             }
                         
