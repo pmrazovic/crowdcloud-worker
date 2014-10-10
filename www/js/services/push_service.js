@@ -61,7 +61,7 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
         case 'message':
             if (typeof e.payload.open_call != 'undefined') {
               ResponseService.readSensorData(e.payload.open_call.response_data_types).then(function (data) {
-                var url = "http://130.229.152.79:3000/open_calls/" + e.payload.open_call.id.toString() + "/responses";
+                var url = "http://130.229.178.90:3000/open_calls/" + e.payload.open_call.id.toString() + "/responses";
                 $http.post(url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}});
               });
             }

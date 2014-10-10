@@ -178,6 +178,9 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
   message_info "Adding Device Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-device.git
 
+  message_info "Adding Sensing Ability Plugin..."
+  cordova plugin add https://github.com/pmrazovic/cordova-sensing-ability-plugin.git
+
   message_info "Adding Console Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-console.git
 
