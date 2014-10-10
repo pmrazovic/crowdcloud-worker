@@ -66,7 +66,19 @@ servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevi
         case 'AcousticData':
         break;
 
-        case 'IlluminationData':
+        case 'LightData':
+          var q = $q.defer();
+          navigator.LightSensor.getCurrentLumen(function (result) {
+            var responseItem = { 'LightData':
+                                  { lumen: result.value }
+                               };
+            responseItems.push(responseItem);
+            q.resolve();
+          }, function (err) {
+            q.reject(err);
+          });
+          promises.push(q.promise);
+
         break;
 
         case 'TemperatureData':

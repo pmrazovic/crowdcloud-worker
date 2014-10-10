@@ -193,14 +193,17 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
   message_info "Adding Dialogs Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-dialogs.git
 
-  message_info "Adding Geolocation Plugin"
+  message_info "Adding Geolocation Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
 
-  message_info "Adding Device Motion Plugin"
+  message_info "Adding Device Motion Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-device-motion.git
 
-  message_info "Adding Device Orientation Plugin"
+  message_info "Adding Device Orientation Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-device-orientation.git
+
+  message_info "Adding Light Sensor Plugin..."
+  cordova plugin add https://github.com/pmrazovic/lightsensor.git
 fi
 
 # ----
