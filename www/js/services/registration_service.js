@@ -6,7 +6,7 @@ servicesModule.service('RegistrationService', function ($q, $http, $rootScope, $
                     version:  $cordovaDevice.getVersion(),
                     push_id:  push_id,
                     sensors:  SensingAbility.sensors };
-    $http.post("http://130.229.178.90:3000/devices/register", _params, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+    $http.post("http://crowdcloud.herokuapp.com/devices/register", _params, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
       .success(function (data) {
         window.localStorage["reg_id"] = data["reg_id"];
       })
