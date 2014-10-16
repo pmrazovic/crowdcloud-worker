@@ -53,7 +53,17 @@ var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcl
       url: "/open_calls",
       views: {
         'menuContent' :{
-          templateUrl: "templates/open_calls.html"
+          templateUrl: "templates/open_calls.html",
+          controller: 'OpenCallsController'
+        }
+      }
+    })
+    .state('app.open_call', {
+      url: "/open_calls/:id",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/open_call.html",
+          controller: 'OpenCallController'
         }
       }
     })

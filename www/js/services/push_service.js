@@ -1,5 +1,5 @@
 //http://forum.ionicframework.com/t/how-to-show-a-modal-while-receive-notifications/3294/12
-servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPlatform, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, ResponseService) {
+servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPlatform, $ionicPopup, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, ResponseService) {
 
   var deferred;
   
@@ -49,23 +49,40 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
         case 'registered':
             if ( e.regid.length > 0 )
             {
-                // Your GCM push server needs to know the regID before it can push to this device
-                // here is where you might want to send it the regID for later use.
-                if (typeof window.localStorage["reg_id"] == 'undefined') {
-                  RegistrationService.registerDevice(e.regid);
-                }
-                $rootScope.$broadcast('device_id_received', {data : e.regid});
+              if (typeof window.localStorage["reg_id"] == 'undefined') {
+                RegistrationService.registerDevice(e.regid);
+              }
+              $rootScope.$broadcast('device_id_received', {data : e.regid});
             }
         break;
 
         case 'message':
+          if (e.foreground) {
             if (typeof e.payload.open_call != 'undefined') {
-              ResponseService.readSensorData(e.payload.open_call.response_data_types).then(function (data) {
-                var url = "http://crowdcloud.herokuapp.com/open_calls/" + e.payload.open_call.id.toString() + "/responses";
-                $http.post(url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}});
+
+              var confirmPopup = $ionicPopup.confirm({
+                title: 'New open call received',
+                template: 'Do you want to respond right now?',
+                buttons: [ { text: 'No', type: 'button-stable', onTap: function () { return false } },
+                           { text: 'Yes', type: 'button-dark', onTap: function () { return true } } ]
               });
+              confirmPopup.then(function(res) {
+                if(res) {
+                  window.location = "#/app/open_calls/" + e.payload.open_call.id.toString();
+                }
+              });              
+
+              // ResponseService.readSensorData(e.payload.open_call.response_data_types).then(function (data) {
+              //   var url = "http://130.229.148.98:3000/open_calls/" + e.payload.open_call.id.toString() + "/responses";
+              //   $http.post(url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}});
+              // });
+
             }
-                        
+          } else {
+            if (typeof e.payload.open_call != 'undefined') {
+              window.location = "#/app/open_calls/" + e.payload.open_call.id.toString();
+            }            
+          }              
         break;
 
         case 'error':

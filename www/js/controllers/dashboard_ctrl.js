@@ -1,2 +1,2 @@
-controllersModule.controller('DashboardController', function($scope, $http, $ionicLoading, $ionicPopup, $ionicPlatform) {
+controllersModule.controller('DashboardController', function($scope, $ionicLoading, $ionicPopup, $ionicPlatform) {
 })

@@ -1,0 +1,43 @@
+<ion-view title="{{open_call.name}}">
+  <ion-content class="has-header background-pattern">
+
+  <div class="list" ng-init="init()">
+    <div class="item item-divider">
+      Crowdsourcer
+    </div>
+    <div class="item item-icon-left">
+      <i class="icon ion-ios7-person"></i>
+      {{open_call.crowdsourcer}}
+    </div>
+    <div class="item item-divider">
+      Published at
+    </div>
+    <div class="item item-icon-left">
+      <i class="icon ion-ios7-time"></i>
+      {{open_call.published_at}}
+    </div>
+    <div class="item item-divider">
+      Open call info
+    </div>
+    <div class="item item-text-wrap">
+      <h2>Requested data</h2>
+      <p>
+        <span ng-repeat="data_type in open_call.response_data_types">
+          {{camelCase2Human(data_type)}}{{$last ? '' : ', '}}
+        </span>
+      </p>
+    </div>
+    <div class="item item-text-wrap">
+      <h2>Description</h2>
+      <p>{{open_call.description}}</p>
+    </div>
+    <div class="item">
+      <button class="button icon-left button-full button-dark" ng-click="respond()">
+        <i class="icon ion-ios7-paperplane"></i>
+        Respond to open call
+      </button>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>
