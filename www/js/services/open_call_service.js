@@ -1,11 +1,13 @@
 servicesModule.service('OpenCall', function ($q, $http, ResponseService, ConnectionService) {
   var url = ConnectionService.backendApiUrl + "/open_calls";
   this.getAll = function (page) {
-    return $http.get(url, {page: page}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+    var _url = url + "?page=" + page.toString() + "&device_id=" + window.localStorage["reg_id"].toString();
+    return $http.get(_url, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
   this.get = function (id) {
-    return $http.get(url + '/' + id, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+    var _url = url + '/' + id + "?device_id=" + window.localStorage["reg_id"].toString();
+    return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
   this.respond = function (id, response_data_types) {

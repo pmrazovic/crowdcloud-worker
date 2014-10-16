@@ -1,27 +1,24 @@
 controllersModule.controller('OpenCallsController', function($scope, $ionicLoading, $ionicPopup, OpenCall) {
-  var showLoading = function() {
-    $ionicLoading.show({
-      template: '<i class="icon ion-loading-b"></i> Loading...'
-    });
-  };
-
-  var hideLoading = function(){
-    $ionicLoading.hide();
-  };
-
-  $scope.open_calls = [];
   $scope.init = function () {
-    $scope.getPage(1);
+    $scope.openCalls = [];
+    $scope.dataToLoad = true;
+    $scope.currentPage = 0;
   }
 
-  $scope.getPage = function (page) {
-    showLoading();
-    OpenCall.getAll(page).success(function (data) {
-      hideLoading();
-      $scope.open_calls = $scope.open_calls.concat(data);
+  $scope.getNextPage = function () {
+    OpenCall.getAll($scope.currentPage + 1).success(function (data) {
+      if (data.length != 0) {
+        $scope.currentPage += 1;
+        $scope.openCalls = $scope.openCalls.concat(data);
+        if (data.length < 20) {
+          $scope.dataToLoad = false;
+        }
+      } else {
+        $scope.dataToLoad = false;
+      }
+      $scope.$broadcast('scroll.infiniteScrollComplete');
     })
     .error(function (error) {
-      hideLoading();
       var alertPopup = $ionicPopup.alert({
         title: 'Error',
         template: "Errors were encountered while loading open calls!",

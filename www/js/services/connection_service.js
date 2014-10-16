@@ -1,4 +1,4 @@
 servicesModule.service('ConnectionService', function () {
-  this.backendHost = "http://130.229.148.98:3000";
+  this.backendHost = "crowdcloud.herokuapp.com";
   this.backendApiUrl = this.backendHost + "/api";
 });

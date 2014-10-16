@@ -4,11 +4,17 @@
   </ion-nav-buttons>
   <ion-content class="has-header background-pattern">
     <div class="list" ng-init="init()">
-      <a ng-repeat="open_call in open_calls" class="item item-icon-left item-icon-right" href="#/app/open_calls/{{open_call.id}}">
-        <i class="icon ion-ios7-bell"></i>
-        {{open_call.name}}
+      <a ng-repeat="openCall in openCalls" class="item item-icon-left item-icon-right" href="#/app/open_calls/{{openCall.id}}">
+        <i ng-class="openCall.responded ? 'icon ion-ios7-bell dark' : 'icon ion-ios7-bell positive'"></i>
+        <h2>{{openCall.name}}</h2>
         <i class="icon ion-ios7-arrow-right"></i>
       </a>
     </div>
+    <ion-infinite-scroll
+      ng-if="dataToLoad"
+      icon="ion-loading-c"
+      on-infinite="getNextPage()">
+    </ion-infinite-scroll>
+
   </ion-content>
 </ion-view>
