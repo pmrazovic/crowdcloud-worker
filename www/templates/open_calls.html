@@ -4,9 +4,14 @@
   </ion-nav-buttons>
   <ion-content class="has-header background-pattern">
     <div class="list" ng-init="init()">
-      <a ng-repeat="openCall in openCalls" class="item item-icon-left item-icon-right" href="#/app/open_calls/{{openCall.id}}">
-        <i ng-class="openCall.responded ? 'icon ion-ios7-bell dark' : 'icon ion-ios7-bell positive'"></i>
+      <a ng-repeat="openCall in openCalls" class="item item-avatar item-icon-right" href="#/app/open_calls/{{openCall.id}}">
+        <img ng-src="img/{{ openCall.responded ? 'bell-icon-responded.png' : 'bell-icon.png'}}">
+        <!-- <i ng-class="openCall.responded ? 'icon ion-ios7-bell dark' : 'icon ion-ios7-bell positive'"></i> -->
         <h2>{{openCall.name}}</h2>
+        <p>
+          {{openCall.crowdsourcer_name}}<br />
+          {{openCall.published_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
+        </p>
         <i class="icon ion-ios7-arrow-right"></i>
       </a>
     </div>

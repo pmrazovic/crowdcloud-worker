@@ -15,7 +15,7 @@
     </div>
     <div class="item item-icon-left">
       <i class="icon ion-ios7-time"></i>
-      {{open_call.published_at}}
+      {{open_call.published_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
     </div>
     <div class="item item-divider">
       Open call info
