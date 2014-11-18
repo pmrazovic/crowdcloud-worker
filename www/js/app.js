@@ -49,21 +49,21 @@ var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcl
         }
       }
     })
-    .state('app.open_calls', {
-      url: "/open_calls",
+    .state('app.sensing_tasks', {
+      url: "/sensing_tasks",
       views: {
         'menuContent' :{
-          templateUrl: "templates/open_calls.html",
-          controller: 'OpenCallsController'
+          templateUrl: "templates/sensing_tasks.html",
+          controller: 'SensingTasksController'
         }
       }
     })
-    .state('app.open_call', {
-      url: "/open_calls/:id",
+    .state('app.sensing_task', {
+      url: "/sensing_tasks/:id",
       views: {
         'menuContent' :{
-          templateUrl: "templates/open_call.html",
-          controller: 'OpenCallController'
+          templateUrl: "templates/sensing_task.html",
+          controller: 'SensingTaskController'
         }
       }
     })

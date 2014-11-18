@@ -58,19 +58,19 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
 
         case 'message':
           if (e.foreground) {
-            if (typeof e.payload.open_call != 'undefined') {
+            if (typeof e.payload.task != 'undefined') {
 
               var confirmPopup = $ionicPopup.confirm({
-                title: 'New open call received',
+                title: 'New task received',
                 template: 'Do you want to respond right now?',
                 buttons: [ { text: 'No', type: 'button-stable', onTap: function () { return false } },
                            { text: 'Yes', type: 'button-dark', onTap: function () { return true } } ]
               });
               confirmPopup.then(function(res) {
                 if(res) {
-                  window.location = "#/app/open_calls/" + e.payload.open_call.id.toString();
+                  window.location = "#/app/sensing_tasks/" + e.payload.task.id.toString();
                 }
-              });              
+              });
 
               // ResponseService.readSensorData(e.payload.open_call.response_data_types).then(function (data) {
               //   var url = "http://130.229.148.98:3000/open_calls/" + e.payload.open_call.id.toString() + "/responses";
@@ -79,8 +79,8 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
 
             }
           } else {
-            if (typeof e.payload.open_call != 'undefined') {
-              window.location = "#/app/open_calls/" + e.payload.open_call.id.toString();
+            if (typeof e.payload.task != 'undefined') {
+              window.location = "#/app/sensing_tasks/" + e.payload.task.id.toString();
             }            
           }              
         break;

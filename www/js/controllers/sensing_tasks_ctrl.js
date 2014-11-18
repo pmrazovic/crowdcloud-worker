@@ -1,15 +1,15 @@
-controllersModule.controller('OpenCallsController', function($scope, $ionicLoading, $ionicPopup, OpenCall) {
+controllersModule.controller('SensingTasksController', function($scope, $ionicLoading, $ionicPopup, SensingTask) {
   $scope.init = function () {
-    $scope.openCalls = [];
+    $scope.sensingTasks = [];
     $scope.dataToLoad = true;
     $scope.currentPage = 0;
   }
 
   $scope.getNextPage = function () {
-    OpenCall.getAll($scope.currentPage + 1).success(function (data) {
+    SensingTask.getAll($scope.currentPage + 1).success(function (data) {
       if (data.length != 0) {
         $scope.currentPage += 1;
-        $scope.openCalls = $scope.openCalls.concat(data);
+        $scope.sensingTasks = $scope.sensingTasks.concat(data);
         if (data.length < 20) {
           $scope.dataToLoad = false;
         }

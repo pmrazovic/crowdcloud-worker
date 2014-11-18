@@ -1,0 +1,24 @@
+<ion-view title="Sensing tasks">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header background-pattern">
+    <div class="list" ng-init="init()">
+      <a ng-repeat="sensingTask in sensingTasks" class="item item-avatar item-icon-right" href="#/app/sensing_tasks/{{sensingTask.id}}">
+        <img ng-src="img/{{ sensingTask.responded ? 'sensor-icon-responded.png' : 'sensor-icon.png'}}">
+        <h2>{{sensingTask.name}}</h2>
+        <p>
+          {{sensingTask.crowdsourcer_name}}<br />
+          {{sensingTask.published_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
+        </p>
+        <i class="icon ion-ios7-arrow-right"></i>
+      </a>
+    </div>
+    <ion-infinite-scroll
+      ng-if="dataToLoad"
+      icon="ion-loading-c"
+      on-infinite="getNextPage()">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

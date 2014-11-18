@@ -1,4 +1,4 @@
-<ion-view title="{{open_call.name}}">
+<ion-view title="{{sensing_task.name}}">
   <ion-content class="has-header background-pattern">
 
   <div class="list" ng-init="init()">
@@ -7,35 +7,35 @@
     </div>
     <div class="item item-icon-left">
       <i class="icon ion-ios7-person"></i>
-      {{open_call.crowdsourcer_name}}
-      <p>{{open_call.crowdsourcer_email}}</p>
+      {{sensing_task.crowdsourcer_name}}
+      <p>{{sensing_task.crowdsourcer_email}}</p>
     </div>
     <div class="item item-divider">
       Published at
     </div>
     <div class="item item-icon-left">
       <i class="icon ion-ios7-time"></i>
-      {{open_call.published_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
+      {{sensing_task.published_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
     </div>
     <div class="item item-divider">
-      Open call info
+      Sensing task info
     </div>
     <div class="item item-text-wrap">
       <h2>Requested data</h2>
       <p>
-        <span ng-repeat="data_type in open_call.response_data_types">
+        <span ng-repeat="data_type in sensing_task.response_data_types">
           {{camelCase2Human(data_type)}}{{$last ? '' : ', '}}
         </span>
       </p>
     </div>
     <div class="item item-text-wrap">
       <h2>Description</h2>
-      <p>{{open_call.description}}</p>
+      <p>{{sensing_task.description}}</p>
     </div>
-    <div class="item" ng-if="open_call.responded" style="text-align: center; background-color: #ABABAB;"> 
+    <div class="item" ng-if="sensing_task.responded" style="text-align: center; background-color: #ABABAB;"> 
       <h1>RESPONDED</h1>
     </div>
-    <div class="item" ng-if="!open_call.responded">
+    <div class="item" ng-if="!sensing_task.responded">
       <button class="button icon-left button-full button-dark" ng-click="respond()">
         <i class="icon ion-ios7-paperplane"></i>
         Respond to open call
