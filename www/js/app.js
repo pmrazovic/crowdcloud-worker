@@ -67,6 +67,24 @@ var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcl
         }
       }
     })
+    .state('app.hits', {
+      url: "/hits",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/hits.html",
+          controller: 'HitsController'
+        }
+      }
+    })
+    .state('app.hit', {
+      url: "/hits/:id",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/hit.html",
+          controller: 'HitController'
+        }
+      }
+    })
     .state('app.privacy_control', {
       url: "/privacy_control",
       views: {

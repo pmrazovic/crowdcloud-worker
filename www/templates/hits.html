@@ -1,0 +1,25 @@
+<ion-view title="HITs">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header background-pattern">
+
+    <div class="list" ng-init="init()">
+      <a ng-repeat="hit in hits" class="item item-avatar item-icon-right" href="#/app/hits/{{hit.id}}">
+        <img ng-src="img/{{ hit.responded ? 'light-icon-responded.png' : 'light-icon.png'}}">
+        <h2>{{hit.question}}</h2>
+        <p>
+          {{hit.crowdsourcer_name}}<br />
+          {{hit.published_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
+        </p>
+        <i class="icon ion-ios7-arrow-right"></i>
+      </a>
+    </div>
+    <ion-infinite-scroll
+      ng-if="dataToLoad"
+      icon="ion-loading-c"
+      on-infinite="getNextPage()">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>
