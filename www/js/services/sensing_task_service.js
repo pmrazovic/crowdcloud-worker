@@ -1,4 +1,4 @@
-servicesModule.service('SensingTask', function ($q, $http, ResponseService, ConnectionService) {
+servicesModule.service('SensingTask', function ($q, $http, SensingResponseService, ConnectionService) {
   var url = ConnectionService.backendApiUrl + "/sensing_tasks";
   this.getAll = function (page) {
     var _url = url + "?page=" + page.toString() + "&device_id=" + window.localStorage["reg_id"].toString();
@@ -11,9 +11,9 @@ servicesModule.service('SensingTask', function ($q, $http, ResponseService, Conn
   }
 
   this.respond = function (id, response_data_types) {
-    var _url = ConnectionService.backendApiUrl + "/responses";
+    var _url = ConnectionService.backendApiUrl + "/sensing_responses";
     var q = $q.defer();
-    ResponseService.readSensorData(response_data_types).then(function (data) {
+    SensingResponseService.readSensorData(response_data_types).then(function (data) {
       data.task_id = id.toString();
       data.task_type = "SensingTask";
       $http.post(_url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}})

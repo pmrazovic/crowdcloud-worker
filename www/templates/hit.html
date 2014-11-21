@@ -32,10 +32,10 @@
       <h2>Description</h2>
       <p>{{hit.description}}</p>
     </div>
-    <div class="item" ng-if="sensing_task.responded" style="text-align: center; background-color: #ABABAB;"> 
+    <div class="item" ng-if="hit.responded" style="text-align: center; background-color: #ABABAB;"> 
       <h1>RESPONDED</h1>
     </div>
-    <div class="item" ng-if="!sensing_task.responded">
+    <div class="item" ng-if="!hit.responded">
       <button class="button icon-left button-full button-dark" ng-click="respond()">
         <i class="icon ion-ios7-lightbulb"></i>
         Respond to HIT

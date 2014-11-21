@@ -1,4 +1,4 @@
-servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevice, $cordovaGeolocation, $cordovaDeviceMotion, $cordovaDeviceOrientation) {
+servicesModule.service('SensingResponseService', function ($q, $rootScope, $cordovaDevice, $cordovaGeolocation, $cordovaDeviceMotion, $cordovaDeviceOrientation) {
   this.readSensorData = function (response_data_types) {
     var responseItems = [];
     
@@ -7,7 +7,7 @@ servicesModule.service('ResponseService', function ($q, $rootScope, $cordovaDevi
 
     function lastTask () {
       var response = { device: { uuid: $cordovaDevice.getUUID() },
-                       response_items: responseItems };
+                       sensing_response_items: responseItems };
       defer.resolve(response);
     }
 

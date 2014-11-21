@@ -11,6 +11,9 @@ controllersModule.controller('HitResponseController', function($scope, $ionicLoa
 
   $scope.init = function () {
     showLoading();
+    $scope.radioData = {
+      choiceId: null
+    };
     getHit();
   }
 
@@ -27,6 +30,26 @@ controllersModule.controller('HitResponseController', function($scope, $ionicLoa
         buttons: [ { text: 'Ok', type: 'button-dark' } ]
       });
     })
+  }
+
+  $scope.respond = function () {
+    showLoading();
+    Hit.respond($scope.hit.id, $scope.radioData.choiceId, $scope.hit.context_data_types)
+      .then(function (data) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Success',
+          template: "You have successfully responded to this HIT!",
+          buttons: [ { text: 'Ok', type: 'button-dark' } ]
+        });
+        getHit();               
+      },function (error) {
+        hideLoading();
+        var alertPopup = $ionicPopup.alert({
+          title: 'Error',
+          template: "Errors were encountered while responding to this HIT!",
+          buttons: [ { text: 'Ok', type: 'button-dark' } ]
+        });        
+      });
   }
   
 })
