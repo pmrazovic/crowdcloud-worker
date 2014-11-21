@@ -1,4 +1,4 @@
-controllersModule.controller('HitController', function($scope, $ionicLoading, $ionicPopup, $stateParams, Hit) {
+controllersModule.controller('HitResponseController', function($scope, $ionicLoading, $ionicPopup, $stateParams, Hit) {
   var showLoading = function() {
     $ionicLoading.show({
       template: '<i class="icon ion-loading-b"></i> Loading...'
@@ -7,10 +7,6 @@ controllersModule.controller('HitController', function($scope, $ionicLoading, $i
 
   var hideLoading = function(){
     $ionicLoading.hide();
-  };
-
-  $scope.camelCase2Human = function(input) {
-    return input.charAt(0).toUpperCase() + input.substr(1).replace(/[A-Z]/g, ' $&');
   };
 
   $scope.init = function () {
@@ -32,9 +28,5 @@ controllersModule.controller('HitController', function($scope, $ionicLoading, $i
       });
     })
   }
-
-  $scope.respond = function () {
-    window.location = "#/app/hits/" + $scope.hit.id.toString() + "/response"
-  }
-
+  
 })

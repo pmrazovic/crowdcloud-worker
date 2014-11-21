@@ -59,7 +59,7 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
         case 'message':
           if (e.foreground) {
             if (typeof e.payload.task != 'undefined') {
-
+              var taskType = e.payload.task.type;   
               var confirmPopup = $ionicPopup.confirm({
                 title: 'New task received',
                 template: 'Do you want to respond right now?',
@@ -68,7 +68,11 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
               });
               confirmPopup.then(function(res) {
                 if(res) {
-                  window.location = "#/app/sensing_tasks/" + e.payload.task.id.toString();
+                  if (taskType === 'SensingTask') {
+                    window.location = "#/app/sensing_tasks/" + e.payload.task.id.toString();
+                  } else if (taskType === 'Hit') {
+                    window.location = "#/app/hits/" + e.payload.task.id.toString();
+                  }
                 }
               });
 
@@ -80,7 +84,12 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
             }
           } else {
             if (typeof e.payload.task != 'undefined') {
-              window.location = "#/app/sensing_tasks/" + e.payload.task.id.toString();
+              var taskType = e.payload.task.type;
+              if (taskType === 'SensingTask') {
+                window.location = "#/app/sensing_tasks/" + e.payload.task.id.toString();
+              } else if (taskType === 'Hit') {
+                window.location = "#/app/hits/" + e.payload.task.id.toString();
+              }
             }            
           }              
         break;

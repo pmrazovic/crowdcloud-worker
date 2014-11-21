@@ -1,0 +1,27 @@
+<ion-view title="Respond to HIT">
+  <ion-content class="has-header background-pattern">
+
+  <div class="list" ng-init="init()">
+    <div class="item item-text-wrap">
+      <h1>{{hit.question}}</h1>
+    </div>  
+
+    <label ng-repeat="hitChoice in hit.choices" class="item item-radio">
+      <input type="radio" name="choice" value="{{hitChoice.id}}">
+      <div class="item-content">
+        {{hitChoice.description}}
+      </div>
+      <i class="radio-icon ion-checkmark"></i>
+    </label>
+
+    <div class="item" ng-if="!hit.responded">
+      <button class="button icon-left button-full button-dark" ng-click="respond()">
+        <i class="icon ion-ios7-paperplane"></i>
+        Send you answer
+      </button>
+    </div>
+
+  </div>
+
+  </ion-content>
+</ion-view>
