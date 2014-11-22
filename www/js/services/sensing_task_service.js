@@ -10,10 +10,10 @@ servicesModule.service('SensingTask', function ($q, $http, SensingResponseServic
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
-  this.respond = function (id, response_data_types) {
+  this.respond = function (id, sensing_data_types) {
     var _url = ConnectionService.backendApiUrl + "/sensing_responses";
     var q = $q.defer();
-    SensingResponseService.readSensorData(response_data_types).then(function (data) {
+    SensingResponseService.readSensorData(sensing_data_types).then(function (data) {
       data.task_id = id.toString();
       $http.post(_url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
       .success(function (data) {

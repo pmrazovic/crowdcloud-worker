@@ -20,7 +20,7 @@ controllersModule.controller('SensingTaskController', function($scope, $ionicLoa
 
   $scope.respond = function () {
     showLoading();
-    SensingTask.respond($scope.sensing_task.id, $scope.sensing_task.response_data_types)
+    SensingTask.respond($scope.sensing_task.id, $scope.sensing_task.sensing_data_types)
       .then(function (data) {
         var alertPopup = $ionicPopup.alert({
           title: 'Success',

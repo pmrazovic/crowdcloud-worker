@@ -23,7 +23,7 @@
     <div class="item item-text-wrap">
       <h2>Requested data</h2>
       <p>
-        <span ng-repeat="data_type in sensing_task.response_data_types">
+        <span ng-repeat="data_type in sensing_task.sensing_data_types">
           {{camelCase2Human(data_type)}}{{$last ? '' : ', '}}
         </span>
       </p>

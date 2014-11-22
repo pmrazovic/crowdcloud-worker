@@ -1,5 +1,5 @@
 servicesModule.service('SensingResponseService', function ($q, $rootScope, $cordovaDevice, $cordovaGeolocation, $cordovaDeviceMotion, $cordovaDeviceOrientation) {
-  this.readSensorData = function (response_data_types) {
+  this.readSensorData = function (sensing_data_types) {
     var responseItems = [];
     
     var defer = $q.defer();
@@ -11,9 +11,9 @@ servicesModule.service('SensingResponseService', function ($q, $rootScope, $cord
       defer.resolve(response);
     }
 
-    for (i = 0; i < response_data_types.length; ++i) {
+    for (i = 0; i < sensing_data_types.length; ++i) {
 
-      switch(response_data_types[i]) 
+      switch(sensing_data_types[i]) 
       {
         case 'GeoLocationData':
           promises.push($cordovaGeolocation
