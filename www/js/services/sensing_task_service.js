@@ -15,7 +15,6 @@ servicesModule.service('SensingTask', function ($q, $http, SensingResponseServic
     var q = $q.defer();
     SensingResponseService.readSensorData(response_data_types).then(function (data) {
       data.task_id = id.toString();
-      data.task_type = "SensingTask";
       $http.post(_url, data, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
       .success(function (data) {
         q.resolve();
