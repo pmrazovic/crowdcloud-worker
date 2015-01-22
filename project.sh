@@ -155,11 +155,17 @@ if [[ $init = 1 ]] || [[ $icons = 1 ]] ; then
   cp www/res/icon/android/icon-96.png platforms/android/res/drawable-xhdpi/icon.png
   cp www/res/icon/android/icon-96.png platforms/android/res/drawable/icon.png
 
+  rm platforms/android/res/drawable-port-ldpi/screen.png
+  rm platforms/android/res/drawable-port-mdpi/screen.png
+  rm platforms/android/res/drawable-port-hdpi/screen.png
+  rm platforms/android/res/drawable-port-xhdpi/screen.png
+  rm platforms/android/res/drawable/screen.png
+
   cp www/res/screen/android/screen-ldpi-portrait.png platforms/android/res/drawable-port-ldpi/screen.png
   cp www/res/screen/android/screen-mdpi-portrait.png platforms/android/res/drawable-port-mdpi/screen.png
-  cp www/res/screen/android/screen-hdpi-portrait.png platforms/android/res/drawable-port-hdpi/screen.png
-  cp www/res/screen/android/screen-xhdpi-portrait.png platforms/android/res/drawable-port-xhdpi/screen.png
-  cp www/res/screen/android/screen-xhdpi-portrait.png platforms/android/res/drawable/screen.png
+  cp www/res/screen/android/screen-hdpi-portrait.9.png platforms/android/res/drawable-port-hdpi/screen.9.png
+  cp www/res/screen/android/screen-xhdpi-portrait.9.png platforms/android/res/drawable-port-xhdpi/screen.9.png
+  cp www/res/screen/android/screen-xhdpi-portrait.9.png platforms/android/res/drawable/screen.9.png
 
   # message_info "Copying iOS app icons and splash screen images..."
   # cp www/res/icon/ios/*.png platforms/ios/GlobeCat\ Scan/Resources/icons/
