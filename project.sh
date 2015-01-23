@@ -208,6 +208,9 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
   message_info "Adding Dialogs Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-dialogs.git
 
+  message_info "Adding Toast Plugin..."
+  cordova plugin add https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git
+
   message_info "Adding Geolocation Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
 

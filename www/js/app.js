@@ -6,7 +6,26 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('mobics', ['ionic', 'mobics.services', 'mobics.controllers', 'ngCordova'])
 
-.run(function($ionicPlatform, $window, RegistrationService, PushService) {
+.run(function($ionicPlatform, $rootScope, $cordovaToast, $timeout, $window, RegistrationService, PushService) {
+
+  $ionicPlatform.registerBackButtonAction(function(e){
+    if ($rootScope.backButtonPressedOnceToExit) {
+      ionic.Platform.exitApp();
+    }
+    else if ($rootScope.$viewHistory.backView) {
+      $rootScope.$viewHistory.backView.go();
+    }
+    else {
+      $rootScope.backButtonPressedOnceToExit = true;
+      $cordovaToast.showShortBottom('Press back button again to exit!').then(function(success) {}, function (error) {});
+      $timeout(function(){
+        $rootScope.backButtonPressedOnceToExit = false;
+      },2000);
+    }
+    e.preventDefault();
+    return false;
+  },101);
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
