@@ -159,6 +159,10 @@ if [[ $init = 1 ]] || [[ $icons = 1 ]] ; then
   rm platforms/android/res/drawable-port-mdpi/screen.png
   rm platforms/android/res/drawable-port-hdpi/screen.png
   rm platforms/android/res/drawable-port-xhdpi/screen.png
+  rm platforms/android/res/drawable-land-ldpi/screen.png
+  rm platforms/android/res/drawable-land-mdpi/screen.png
+  rm platforms/android/res/drawable-land-hdpi/screen.png
+  rm platforms/android/res/drawable-land-xhdpi/screen.png
   rm platforms/android/res/drawable/screen.png
 
   cp www/res/screen/android/screen-ldpi-portrait.png platforms/android/res/drawable-port-ldpi/screen.png
@@ -166,6 +170,11 @@ if [[ $init = 1 ]] || [[ $icons = 1 ]] ; then
   cp www/res/screen/android/screen-hdpi-portrait.9.png platforms/android/res/drawable-port-hdpi/screen.9.png
   cp www/res/screen/android/screen-xhdpi-portrait.9.png platforms/android/res/drawable-port-xhdpi/screen.9.png
   cp www/res/screen/android/screen-xhdpi-portrait.9.png platforms/android/res/drawable/screen.9.png
+
+  cp www/res/screen/android/screen-ldpi-landscape.9.png platforms/android/res/drawable-land-ldpi/screen.9.png
+  cp www/res/screen/android/screen-mdpi-landscape.9.png platforms/android/res/drawable-land-mdpi/screen.9.png
+  cp www/res/screen/android/screen-hdpi-landscape.9.png platforms/android/res/drawable-land-hdpi/screen.9.png
+  cp www/res/screen/android/screen-xhdpi-landscape.9.png platforms/android/res/drawable-land-xhdpi/screen.9.png
 
   # message_info "Copying iOS app icons and splash screen images..."
   # cp www/res/icon/ios/*.png platforms/ios/GlobeCat\ Scan/Resources/icons/
