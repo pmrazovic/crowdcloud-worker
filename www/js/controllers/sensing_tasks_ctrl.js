@@ -1,9 +1,13 @@
-controllersModule.controller('SensingTasksController', function($scope, $ionicLoading, $ionicPopup, SensingTask) {
+controllersModule.controller('SensingTasksController', function($scope, $ionicLoading, $ionicPopup, $state, SensingTask) {
   $scope.init = function () {
     $scope.sensingTasks = [];
     $scope.dataToLoad = true;
     $scope.currentPage = 0;
   }
+
+  $scope.new = function() {
+    $state.go('app.new_sensing_task');
+  };
 
   $scope.getNextPage = function () {
     SensingTask.getAll($scope.currentPage + 1).success(function (data) {
