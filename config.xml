@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.kth.crowdcloudworker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>CrowdCloud Worker</name>
+<widget id="com.kth.mobicsworker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>MobiCS</name>
   <description>
-        CrowdCloud client mobile application.
+        MobiCS client application.
     </description>
   <author email="mrazovic@kth.se" href="https://github.com/pmrazovic">
       Petar Mrazovic
