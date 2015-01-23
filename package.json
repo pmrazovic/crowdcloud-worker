@@ -1,7 +1,7 @@
 {
-  "name": "crowdcloud-worker",
+  "name": "mobics",
   "version": "1.0.0",
-  "description": "crowdcloud-worker: An Ionic project",
+  "description": "mobics: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcloud.controllers', 'ngCordova'])
+var app = angular.module('mobics', ['ionic', 'mobics.services', 'mobics.controllers', 'ngCordova'])
 
 .run(function($ionicPlatform, $window, RegistrationService, PushService) {
   $ionicPlatform.ready(function() {
@@ -114,5 +114,5 @@ var app = angular.module('crowdcloud', ['ionic', 'crowdcloud.services', 'crowdcl
   $urlRouterProvider.otherwise('/app/dashboard');
 });
 
-var servicesModule = angular.module("crowdcloud.services", []);
-var controllersModule = angular.module("crowdcloud.controllers", []);
+var servicesModule = angular.module("mobics.services", []);
+var controllersModule = angular.module("mobics.controllers", []);
