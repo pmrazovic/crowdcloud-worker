@@ -10,5 +10,10 @@
         <i class="icon ion-chevron-right"></i>
       </a>
     </div>
+    <ion-infinite-scroll
+      ng-if="dataToLoad"
+      icon="ion-loading-c"
+      on-infinite="getNextPage()">
+    </ion-infinite-scroll>
   </ion-content>
 </ion-view>

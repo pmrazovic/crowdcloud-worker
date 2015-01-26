@@ -1,33 +1,27 @@
-controllersModule.controller('SensingTaskResponsesController', function($scope, $ionicLoading, $ionicPopup, $stateParams, SensingTask) {
-  var showLoading = function() {
-    $ionicLoading.show({
-      template: '<i class="icon ion-loading-b"></i> Loading...'
-    });
-  };
-
-  var hideLoading = function(){
-    $ionicLoading.hide();
-  };
-
-  $scope.camelCase2Human = function(input) {
-    return input.charAt(0).toUpperCase() + input.substr(1).replace(/[A-Z]/g, ' $&');
-  };
-
+controllersModule.controller('SensingTaskResponsesController', function($scope, $ionicPopup, $stateParams, SensingTask) {
   $scope.init = function () {
-    showLoading();
-    getResponses();
+    $scope.sensingTaskResponses = [];
+    $scope.dataToLoad = true;
+    $scope.currentPage = 0;
   }
 
-  var getResponses = function () {
-    SensingTask.getAllResponses($stateParams.id).success(function (data) {
-      hideLoading();
-      $scope.sensingTaskResponses = data;
+  $scope.getNextPage = function () {
+    SensingTask.getAllResponses($stateParams.id, $scope.currentPage + 1).success(function (data) {
+      if (data.length != 0) {
+        $scope.currentPage += 1;
+        $scope.sensingTaskResponses = $scope.sensingTaskResponses.concat(data);
+        if (data.length < 20) {
+          $scope.dataToLoad = false;
+        }
+      } else {
+        $scope.dataToLoad = false;
+      }
+      $scope.$broadcast('scroll.infiniteScrollComplete');
     })
     .error(function (error) {
-      hideLoading();
       var alertPopup = $ionicPopup.alert({
         title: 'Error',
-        template: "Errors were encountered while loading sensing task responses!",
+        template: "Errors were encountered while loading responses!",
         buttons: [ { text: 'Ok', type: 'button-dark' } ]
       });
     })

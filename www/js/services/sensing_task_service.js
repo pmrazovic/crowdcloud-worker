@@ -15,8 +15,8 @@ servicesModule.service('SensingTask', function ($q, $http, SensingResponseServic
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
-  this.getAllResponses = function (id) {
-    var _url = url + '/' + id + "/responses";
+  this.getAllResponses = function (id, page) {
+    var _url = url + '/' + id + "/responses" + "?page=" + page.toString();
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
