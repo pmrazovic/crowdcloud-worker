@@ -1,0 +1,14 @@
+<ion-view title="Responses" ng-init="init()">
+  <ion-content class="has-header background-pattern">
+    <div class="list">
+      <a ng-repeat="sensingTaskResponse in sensingTaskResponses" class="item item-icon-left item-icon-right" href="#">
+        <i class="icon ion-radio-waves"></i>
+        <h2>Device: {{sensingTaskResponse.device_uuid}}</h2>
+        <p>
+          {{sensingTaskResponse.created_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
+        </p>
+        <i class="icon ion-chevron-right"></i>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

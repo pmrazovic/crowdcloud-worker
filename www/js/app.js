@@ -86,6 +86,15 @@ var app = angular.module('mobics', ['ionic', 'mobics.services', 'mobics.controll
         }
       }
     })
+    .state('app.sensing_task_responses', {
+      url: "/sensing_tasks/:id/responses",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/sensing_task_responses.html",
+          controller: 'SensingTaskResponsesController'
+        }
+      }
+    })
     .state('app.new_sensing_task', {
       url: "/new_sensing_tasks",
       views: {

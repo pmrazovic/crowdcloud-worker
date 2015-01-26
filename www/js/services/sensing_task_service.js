@@ -10,8 +10,13 @@ servicesModule.service('SensingTask', function ($q, $http, SensingResponseServic
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
-  this.fetch_sensing_data_types = function () {
+  this.fetchSensingDataTypes = function () {
     var _url = ConnectionService.backendApiUrl + "/fetch_sensing_data_types";
+    return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+  }
+
+  this.getAllResponses = function (id) {
+    var _url = url + '/' + id + "/responses";
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 

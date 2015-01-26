@@ -14,7 +14,7 @@ controllersModule.controller('NewSensingTaskController', function($scope, $ionic
   };
 
   $scope.init = function () {
-    SensingTask.fetch_sensing_data_types()
+    SensingTask.fetchSensingDataTypes()
       .then(function (data) {
         hideLoading();
         $scope.sensingDataTypes = data.data;
