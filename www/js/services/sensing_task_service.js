@@ -10,6 +10,11 @@ servicesModule.service('SensingTask', function ($q, $http, SensingResponseServic
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
+  this.fetch_sensing_data_types = function () {
+    var _url = ConnectionService.backendApiUrl + "/fetch_sensing_data_types";
+    return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+  }
+
   this.respond = function (id, sensing_data_types) {
     var _url = ConnectionService.backendApiUrl + "/sensing_responses";
     var q = $q.defer();
@@ -25,5 +30,9 @@ servicesModule.service('SensingTask', function ($q, $http, SensingResponseServic
     });
 
     return q.promise;
+  }
+
+  this.publish = function (sensing_task) {
+    return $http.post(url, sensing_task, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 });

@@ -6,9 +6,8 @@
       Crowdsourcer
     </div>
     <div class="item item-icon-left">
-      <i class="icon ion-ios7-person"></i>
-      {{hit.crowdsourcer_name}}
-      <p>{{hit.crowdsourcer_email}}</p>
+      <i class="icon" ng-class="{'ion-ios7-person' : hit.crowdsourcer_type == 'Account', 'ion-iphone' : hit.crowdsourcer_type == 'Device'}"></i>
+      {{hit.crowdsourcer}}
     </div>
     <div class="item item-divider">
       Published at
