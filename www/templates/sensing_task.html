@@ -1,7 +1,13 @@
-<ion-view title="{{sensing_task.name}}">
+<ion-view title="{{sensing_task.name}}" ng-init="init()">
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-radio-waves" ng-click="respond()" ng-disabled="sensing_task.responded">Respond</button>
+  </ion-nav-buttons>
   <ion-content class="has-header background-pattern">
 
-  <div class="list" ng-init="init()">
+  <div class="list">
+    <div class="item" ng-if="sensing_task.responded" style="text-align: center; background-color: #ABABAB;"> 
+      <h1>RESPONDED</h1>
+    </div>  
     <div class="item item-divider">
       Crowdsourcer
     </div>
@@ -30,15 +36,6 @@
     <div class="item item-text-wrap">
       <h2>Description</h2>
       <p>{{sensing_task.description}}</p>
-    </div>
-    <div class="item" ng-if="sensing_task.responded" style="text-align: center; background-color: #ABABAB;"> 
-      <h1>RESPONDED</h1>
-    </div>
-    <div class="item" ng-if="!sensing_task.responded">
-      <button class="button icon-left button-full button-dark" ng-click="respond()">
-        <i class="icon ion-ios7-paperplane"></i>
-        Respond to sensing task
-      </button>
     </div>
   </div>
 
