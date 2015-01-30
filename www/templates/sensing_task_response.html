@@ -1,0 +1,98 @@
+<ion-view title="Response" ng-init="init()">
+  <ion-content class="has-header background-pattern">
+
+    <div class="list">
+      <div ng-repeat="sensorData in sensingTaskResponse">
+  
+        <div class="item item-divider" ng-if="sensorData.type == 'MotionData'">
+          Motion data
+        </div>
+        <div class="item" ng-if="sensorData.type == 'MotionData'">
+          <b>Acceleration X:</b> {{sensorData.acceleration_x}}<br />
+          <b>Acceleration y:</b> {{sensorData.acceleration_y}}<br />
+          <b>Acceleration z:</b> {{sensorData.acceleration_z}}
+        </div>
+        <div class="item" ng-if="sensorData.type == 'MotionData'" style="text-align: center;">
+          <img src="img/axis_device.png">
+        </div>
+
+        <div class="item item-divider" ng-if="sensorData.type == 'OrientationData'">
+          Orientation data
+        </div>
+        <div class="item" ng-if="sensorData.type == 'OrientationData'">
+          <b>Mangetic heading:</b> {{sensorData.magnetic_heading}}
+        </div>
+        <div class="item" ng-if="sensorData.type == 'OrientationData'" style="text-align: center;">
+          <div style="background-image: url('img/compass.png'); 
+                    background-position: center; 
+                    background-repeat: no-repeat; 
+                    background-size: 180px;">
+          <img src="img/needle.png" style="height: 180px; -webkit-transform: rotate({{sensorData.magnetic_heading}}deg); transform: rotate({{sensorData.magnetic_heading}}deg);" />
+          </div>    
+        </div>
+
+        <div class="item item-divider" ng-if="sensorData.type == 'GeoLocationData'">
+          Geolocation data
+        </div>
+        <div class="item" ng-if="sensorData.type == 'GeoLocationData'">
+          <b>Latitude:</b> {{sensorData.latitude}}<br />
+          <b>Longitude:</b> {{sensorData.longitude}}<br />
+          <b>Accuracy:</b> {{sensorData.accuracy}}
+        </div>
+        <div class="item" ng-if="sensorData.type == 'GeoLocationData'">
+          <div id="map" style="width: 100%; height: 100%" data-tap-disabled="true" ng-init="initializeMap(sensorData.latitude, sensorData.longitude)"></div>
+        </div>
+
+
+        <div class="item item-divider" ng-if="sensorData.type == 'LightData'">
+          Light data
+        </div>
+        <div class="item" ng-if="sensorData.type == 'LightData'">
+          <b>Illuminance:</b> {{sensorData.lumen}} lux
+        </div>
+        <div class="item" ng-if="sensorData.type == 'LightData'">
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 0) && (sensorData.lumen <= 10)}">
+            <div class="col-67">Pitch black</div>
+            <div class="col-33">0-10</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 11) && (sensorData.lumen <= 50)}">
+            <div class="col-67">Very dark</div>
+            <div class="col-33">11-50</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 51) && (sensorData.lumen <= 200)}">
+            <div class="col-67">Dark indoors</div>
+            <div class="col-33">51-200</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 201) && (sensorData.lumen <= 400)}">
+            <div class="col-67">Dim indoors</div>
+            <div class="col-33">201-400</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 401) && (sensorData.lumen <= 1000)}">
+            <div class="col-67">Normal indoors</div>
+            <div class="col-33">401-1000</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 10001) && (sensorData.lumen <= 5000)}">
+            <div class="col-67">Bright indoors</div>
+            <div class="col-33">1001-5000</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 5001) && (sensorData.lumen <= 10000)}">
+            <div class="col-67">Dim outdoors</div>
+            <div class="col-33">5001-10000</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 10001) && (sensorData.lumen <= 30000)}">
+            <div class="col-67">Cloudy outdoors</div>
+            <div class="col-33">10001-30000</div>
+          </div>
+          <div class="row table-row" ng-class="{'active': (sensorData.lumen >= 30001) && (sensorData.lumen <= 100000)}">
+            <div class="col-67">Direct sunlight</div>
+            <div class="col-33">30001-100000</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

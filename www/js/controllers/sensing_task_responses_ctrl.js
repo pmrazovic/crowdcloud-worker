@@ -3,6 +3,7 @@ controllersModule.controller('SensingTaskResponsesController', function($scope, 
     $scope.sensingTaskResponses = [];
     $scope.dataToLoad = true;
     $scope.currentPage = 0;
+    $scope.taskId = $stateParams.id;
   }
 
   $scope.getNextPage = function () {

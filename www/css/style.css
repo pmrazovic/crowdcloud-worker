@@ -149,6 +149,15 @@ body , input, select, textarea,h1 {
     vertical-align:middle
 }
 
+.row.table-row {
+  border:thin #346BAA solid;
+  background-color: #FFF;
+  vertical-align: middle !important;
+}
+.row.table-row.active {
+  background-color: #99C2FF;
+}
+
 .background-pattern {
   background: url('../img/background-pattern01.png') repeat;
 }
@@ -181,9 +190,6 @@ and (min-width : 1224px) {
 
     margin:0 auto;max-width:50%
 
-  }
-  
-
-  
+  }  
 } 
 
