@@ -3,5 +3,18 @@
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header background-pattern">
+    <ul class="list">
+
+    <ion-toggle 
+      class="item item-icon-left item-toggle"
+      toggle-class="toggle"
+      ng-model="backgroundTrackingEnabled"
+      ng-click="toggleBackgroundTracking()">
+      <i class="icon ion-location"></i>
+        Background tracking
+    </ion-toggle>
+
+    </ul>
+
   </ion-content>
 </ion-view>

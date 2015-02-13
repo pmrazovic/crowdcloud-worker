@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('mobics', ['ionic', 'mobics.services', 'mobics.controllers', 'ngCordova'])
 
-.run(function($ionicPlatform, $rootScope, $cordovaToast, $timeout, $window, RegistrationService, PushService) {
+.run(function($ionicPlatform, $rootScope, $cordovaToast, $timeout, $window, RegistrationService, PushService, BackgroundLocationService, ConfigurationService) {
 
   $ionicPlatform.registerBackButtonAction(function(e){
     if ($rootScope.backButtonPressedOnceToExit) {
@@ -39,6 +39,10 @@ var app = angular.module('mobics', ['ionic', 'mobics.services', 'mobics.controll
 
     // update registration in GMC
     PushService.getDeviceId();
+
+    if ((ConfigurationService.get("background_tracking") !== "false") && (typeof ConfigurationService.get("reg_id") !== "undefined")) {
+      BackgroundLocationService.startTracking();
+    }
   });
 })
 

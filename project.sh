@@ -214,6 +214,9 @@ if [[ $init = 1 ]] || [[ $plugins = 1 ]] ; then
   message_info "Adding Geolocation Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git
 
+  message_info "Adding Background Geolocation Plugin..."
+  cordova plugin add https://github.com/christocracy/cordova-plugin-background-geolocation.git
+
   message_info "Adding Device Motion Plugin..."
   cordova plugin add https://github.com/apache/cordova-plugin-device-motion.git
 

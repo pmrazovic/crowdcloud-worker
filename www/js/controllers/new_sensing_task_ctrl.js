@@ -1,4 +1,4 @@
-controllersModule.controller('NewSensingTaskController', function($scope, $ionicLoading, $ionicPopup, $state, SensingTask) {
+controllersModule.controller('NewSensingTaskController', function($scope, $ionicLoading, $ionicPopup, $state, SensingTask, ConfigurationService) {
   var showLoading = function() {
     $ionicLoading.show({
       template: '<i class="icon ion-loading-b"></i> Loading...'
@@ -27,7 +27,7 @@ controllersModule.controller('NewSensingTaskController', function($scope, $ionic
         });        
       });
 
-    $scope.newTask = { crowdsourcer_id: window.localStorage["reg_id"],
+    $scope.newTask = { crowdsourcer_id: ConfigurationService.get("reg_id"),
                        crowdsourcer_type: 'Device',
                        name: '',
                        description: '',

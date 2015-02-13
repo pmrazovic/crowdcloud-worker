@@ -1,12 +1,12 @@
-servicesModule.service('SensingTask', function ($q, $http, SensingResponseService, ConnectionService) {
+servicesModule.service('SensingTask', function ($q, $http, SensingResponseService, ConnectionService, ConfigurationService) {
   var url = ConnectionService.backendApiUrl + "/sensing_tasks";
   this.getAll = function (page) {
-    var _url = url + "?page=" + page.toString() + "&device_id=" + window.localStorage["reg_id"].toString();
+    var _url = url + "?page=" + page.toString() + "&device_id=" + ConfigurationService.get("reg_id");
     return $http.get(_url, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
   this.get = function (id) {
-    var _url = url + '/' + id + "?device_id=" + window.localStorage["reg_id"].toString();
+    var _url = url + '/' + id + "?device_id=" + ConfigurationService.get("reg_id");
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 

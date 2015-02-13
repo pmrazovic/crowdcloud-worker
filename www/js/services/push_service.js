@@ -1,5 +1,5 @@
 //http://forum.ionicframework.com/t/how-to-show-a-modal-while-receive-notifications/3294/12
-servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPlatform, $ionicPopup, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, SensingResponseService) {
+servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPlatform, $ionicPopup, $cordovaPush, $cordovaDialogs, $cordovaDevice, RegistrationService, SensingResponseService, ConfigurationService) {
 
   var deferred;
   
@@ -49,7 +49,7 @@ servicesModule.service('PushService', function ($q, $rootScope, $http, $ionicPla
         case 'registered':
             if ( e.regid.length > 0 )
             {
-              if (typeof window.localStorage["reg_id"] == 'undefined') {
+              if (typeof ConfigurationService.get("reg_id") == 'undefined') {
                 RegistrationService.registerDevice(e.regid);
               }
               $rootScope.$broadcast('device_id_received', {data : e.regid});

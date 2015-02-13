@@ -1,4 +1,4 @@
-servicesModule.service('RegistrationService', function ($q, $http, $cordovaDevice, ConnectionService) {
+servicesModule.service('RegistrationService', function ($q, $http, $cordovaDevice, ConnectionService, BackgroundLocationService, ConfigurationService) {
   var url = ConnectionService.backendApiUrl + "/devices/register";
   this.registerDevice = function (push_id) {
     var params = { uuid:     $cordovaDevice.getUUID(),
@@ -9,7 +9,10 @@ servicesModule.service('RegistrationService', function ($q, $http, $cordovaDevic
                    sensors:  SensingAbility.sensors };
     $http.post(url, params, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
       .success(function (data) {
-        window.localStorage["reg_id"] = data["reg_id"];
+        ConfigurationService.set("reg_id", data["reg_id"]);
+        if (ConfigurationService.get("background_tracking") !== "false") {
+          BackgroundLocationService.startTracking();
+        }
       })
   }
 });
