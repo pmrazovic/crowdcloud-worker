@@ -33,7 +33,4 @@ controllersModule.controller('SensingTaskResponseController', function($scope, $
     })
   }
 
-
-
-
 })

@@ -157,6 +157,9 @@ body , input, select, textarea,h1 {
 .row.table-row.active {
   background-color: #99C2FF;
 }
+.item.active {
+  background-color: #99C2FF; 
+}
 
 .background-pattern {
   background: url('../img/background-pattern01.png') repeat;

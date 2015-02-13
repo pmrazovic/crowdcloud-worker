@@ -34,7 +34,7 @@ controllersModule.controller('HitController', function($scope, $ionicLoading, $i
   }
 
   $scope.respond = function () {
-    window.location = "#/app/hits/" + $scope.hit.id.toString() + "/response"
+    window.location = "#/app/hits/" + $scope.hit.id.toString() + "/reply"
   }
 
 })

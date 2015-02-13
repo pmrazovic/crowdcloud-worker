@@ -10,6 +10,16 @@ servicesModule.service('Hit', function ($q, $http, $cordovaDevice, SensingRespon
     return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
   }
 
+  this.getAllResponses = function (id, page) {
+    var _url = url + '/' + id + "/responses" + "?page=" + page.toString();
+    return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+  }
+
+  this.getResponse = function (taskId, responseId) {
+    var _url = url + '/' + taskId + "/responses/" + responseId;
+    return $http.get(_url, {}, {headers: {'Accept' : 'application/json; charset=UTF-8'}})
+  }
+
   this.respond = function (id, choiceId, context_data_types) {
     var _url = ConnectionService.backendApiUrl + "/hit_responses";
     var q = $q.defer();

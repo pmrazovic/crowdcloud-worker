@@ -1,0 +1,19 @@
+<ion-view title="Responses" ng-init="init()">
+  <ion-content class="has-header background-pattern">
+    <div class="list">
+      <a ng-repeat="hitResponse in hitResponses" class="item item-icon-left item-icon-right" href="#/app/hits/{{taskId}}/responses/{{hitResponse.id}}">
+        <i class="icon ion-ios7-lightbulb"></i>
+        <h2>Device: {{hitResponse.device_uuid}}</h2>
+        <p>
+          {{hitResponse.created_at | date:'yyyy-MM-dd, HH:mm:ss:Z' }}
+        </p>
+        <i class="icon ion-chevron-right"></i>
+      </a>
+    </div>
+    <ion-infinite-scroll
+      ng-if="dataToLoad"
+      icon="ion-loading-c"
+      on-infinite="getNextPage()">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

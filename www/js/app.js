@@ -131,12 +131,30 @@ var app = angular.module('mobics', ['ionic', 'mobics.services', 'mobics.controll
         }
       }
     })
+    .state('app.hit_responses', {
+      url: "/hits/:id/responses",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/hit_responses.html",
+          controller: 'HitResponsesController'
+        }
+      }
+    })
     .state('app.hit_response', {
-      url: "/hits/:id/response",
+      url: "/hits/:task_id/responses/:response_id",
       views: {
         'menuContent' :{
           templateUrl: "templates/hit_response.html",
           controller: 'HitResponseController'
+        }
+      }
+    })
+    .state('app.hit_reply', {
+      url: "/hits/:id/reply",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/hit_reply.html",
+          controller: 'HitReplyController'
         }
       }
     })

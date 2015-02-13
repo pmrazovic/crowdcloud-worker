@@ -1,7 +1,13 @@
 <ion-view title="{{hit.question}}">
+  <ion-nav-buttons side="right">
+    <button class="button icon-left ion-ios7-lightbulb" ng-click="respond()" ng-disabled="hit.responded">Respond</button>
+  </ion-nav-buttons>
   <ion-content class="has-header background-pattern">
 
   <div class="list" ng-init="init()">
+    <div class="item" ng-if="hit.responded" style="text-align: center; background-color: #ABABAB;"> 
+      <h1>RESPONDED</h1>
+    </div>
     <div class="item item-divider">
       Crowdsourcer
     </div>
@@ -31,15 +37,14 @@
       <h2>Description</h2>
       <p>{{hit.description}}</p>
     </div>
-    <div class="item" ng-if="hit.responded" style="text-align: center; background-color: #ABABAB;"> 
-      <h1>RESPONDED</h1>
+    <div class="item item-divider">
+      Responses
     </div>
-    <div class="item" ng-if="!hit.responded">
-      <button class="button icon-left button-full button-dark" ng-click="respond()">
-        <i class="icon ion-ios7-lightbulb"></i>
-        Respond to HIT
-      </button>
-    </div>
+    <a class="item item-icon-left item-icon-right" href="#/app/hits/{{hit.id}}/responses">
+      <i class="icon ion-ios7-lightbulb"></i>
+      Responded data
+      <i class="icon ion-chevron-right"></i>
+    </a>
   </div>
 
   </ion-content>
