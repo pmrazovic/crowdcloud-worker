@@ -33,4 +33,21 @@ controllersModule.controller('HitResponseController', function($scope, $ionicLoa
     })
   }
 
+  $scope.initMap = function (lat, lng, accuracy) {
+    $scope.map = L.map('map');
+    var latLng = new L.LatLng(lat, lng)
+    var radius = accuracy / 2;
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+    }).addTo($scope.map);
+
+    L.marker(latLng).addTo($scope.map)
+      .bindPopup("Contributor's location").openPopup();
+    
+    L.circle(latLng, radius).addTo($scope.map);
+
+    $scope.map.setView(latLng, 16);
+  }
+
 })

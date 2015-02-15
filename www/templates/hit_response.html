@@ -45,8 +45,8 @@
           <b>Longitude:</b> {{sensorData.longitude}}<br />
           <b>Accuracy:</b> {{sensorData.accuracy}}
         </div>
-        <div class="item" ng-if="sensorData.type == 'GeoLocationData'">
-          <div id="map" style="width: 100%; height: 100%" data-tap-disabled="true" ng-init="initializeMap(sensorData.latitude, sensorData.longitude)"></div>
+        <div ng-if="sensorData.type == 'GeoLocationData'" data-tap-disabled="true" ng-init="initMap(sensorData.latitude, sensorData.longitude, sensorData.accuracy)">
+          <div id="map" style="height: 200px;"></div>
         </div>
 
         <div class="item item-divider" ng-if="sensorData.type == 'LightData'">
